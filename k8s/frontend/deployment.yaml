@@ -5,53 +5,53 @@ metadata:
   namespace: demo
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  data: 
-    index.html: |
-      <!DOCTYPE html>                                                                                              
-      <html>                                                                                                       
-      <head>                                                                                                       
-          <meta charset="utf-8">                                                                                   
-          <title>GitOps Lab</title>                                                                                
-          <style>                                                                                                  
-              body {                                                                                               
-                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                                    
-                  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);                                   
-                  color: white;                                                                                    
-                  height: 100vh;                                                                                   
-                  display: flex;                                                                                   
-                  align-items: center;                                                                             
-                  justify-content: center;                                                                         
-                  margin: 0;                                                                                       
-              }                                                                                                    
-              .card {                                                                                              
-                  text-align: center;                                                                              
-                  background: rgba(255, 255, 255, 0.1);                                                            
-                  padding: 40px;                                                                                   
-                  border-radius: 15px;                                                                             
-                  backdrop-filter: blur(10px);                                                                     
-                  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);                                                     
-                  border: 1px solid rgba(255, 255, 255, 0.2);                                                      
-              }                                                                                                    
-              h1 { margin: 0 0 10px 0; color: #00d2ff; }                                                           
-              p { font-size: 1.2em; color: #e0e0e0; margin-bottom: 20px; }                                         
-              .badge {                                                                                             
-                  display: inline-block;                                                                           
-                  background-color: #4caf50;                                                                       
-                  padding: 5px 15px;                                                                               
-                  border-radius: 20px;                                                                             
-                  font-weight: bold;                                                                               
-                  font-size: 0.9em;                                                                                
-              }                                                                                                    
-          </style>                                                                                                 
-      </head>                                                                                                      
-      <body>                                                                                                       
-          <div class="card">                                                                                       
-              <h1>Xin chào từ Frontend! 👋</h1>                                                                    
-              <p>Trang web này được phục vụ bởi Nginx + Kubernetes ConfigMap.</p>                                  
-              <div class="badge">Trạng thái: Đã kết nối GitOps thành công</div>                                    
-          </div>                                                                                                   
-      </body>                                                                                                      
-      </html>   
+data: 
+  index.html: |
+    <!DOCTYPE html>                                                                                              
+    <html>                                                                                                       
+    <head>                                                                                                       
+        <meta charset="utf-8">                                                                                   
+        <title>GitOps Lab</title>                                                                                
+        <style>                                                                                                  
+            body {                                                                                               
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                                    
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);                                   
+                color: white;                                                                                    
+                height: 100vh;                                                                                   
+                display: flex;                                                                                   
+                align-items: center;                                                                             
+                justify-content: center;                                                                         
+                margin: 0;                                                                                       
+            }                                                                                                    
+            .card {                                                                                              
+                text-align: center;                                                                              
+                background: rgba(255, 255, 255, 0.1);                                                            
+                padding: 40px;                                                                                   
+                border-radius: 15px;                                                                             
+                backdrop-filter: blur(10px);                                                                     
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);                                                     
+                border: 1px solid rgba(255, 255, 255, 0.2);                                                      
+            }                                                                                                    
+            h1 { margin: 0 0 10px 0; color: #00d2ff; }                                                           
+            p { font-size: 1.2em; color: #e0e0e0; margin-bottom: 20px; }                                         
+            .badge {                                                                                             
+                display: inline-block;                                                                           
+                background-color: #4caf50;                                                                       
+                padding: 5px 15px;                                                                               
+                border-radius: 20px;                                                                             
+                font-weight: bold;                                                                               
+                font-size: 0.9em;                                                                                
+            }                                                                                                    
+        </style>                                                                                                 
+    </head>                                                                                                      
+    <body>                                                                                                       
+        <div class="card">                                                                                       
+            <h1>Xin chào từ Frontend! 👋</h1>                                                                    
+            <p>Trang web này được phục vụ bởi Nginx + Kubernetes ConfigMap.</p>                                  
+            <div class="badge">Trạng thái: Đã kết nối GitOps thành công</div>                                    
+        </div>                                                                                                   
+    </body>                                                                                                      
+    </html>   
 
 
 
