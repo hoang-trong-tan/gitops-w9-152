@@ -1,0 +1,58 @@
+apiVersion: argoproj.io/v1alpha1 # API Group của Argo Rollouts                                                   
+kind: Rollout                                                                                                    
+metadata:                                                                                                        
+  name: api                                                                                                      
+  namespace: demo                                                                                                
+  labels:                                                                                                        
+    app: api                                                                                                     
+spec:                                                                                                            
+  replicas: 4                                                                                                    
+  selector:                                                                                                      
+    matchLabels:                                                                                                 
+      app: api                                                                                                   
+  template:                                                                                                      
+    metadata:                                                                                                    
+      labels:                                                                                                    
+        app: api                                                                                                 
+    spec:                                                                                                        
+      containers:                                                                                                
+      - name: api                                                                                                
+        image: w9-api:1               # Image bạn vừa build                                                      
+        imagePullPolicy: IfNotPresent # Lấy trực tiếp từ cụm Minikube                                            
+        ports:                                                                                                   
+        - name: http                                                                                             
+          containerPort: 8080                                                                                    
+        env:                                                                                                     
+        - name: ERROR_RATE                                                                                       
+          value: "0"                  # Ban đầu không có lỗi                                                     
+        - name: VERSION                                                                                          
+          value: "v1"                                                                                            
+        readinessProbe:               # Kiểm tra xem Pod đã sẵn sàng chưa                                        
+          httpGet:                                                                                               
+            path: /healthz                                                                                       
+            port: 8080                                                                                           
+  strategy:                                                                                                      
+    canary:                           # Chiến lược Canary Rollout                                                
+      steps:                                                                                                     
+      - setWeight: 25                 # Chuyển 25% traffic sang bản mới                                          
+      - pause: {}                     # Tạm dừng vô hạn để kiểm tra thủ công                                     
+      - setWeight: 50                 # Chuyển 50% traffic                                                       
+      - pause:                                                                                                   
+          duration: 30s               # Tạm dừng 30 giây                                                         
+      - setWeight: 100                # Chuyển 100% traffic                                                      
+                                                                                                                  
+---                                                                                                              
+apiVersion: v1                                                                                                   
+kind: Service                                                                                                    
+metadata:                                                                                                        
+  name: api                                                                                                      
+  namespace: demo                                                                                                
+  labels:                                                                                                        
+    app: api                                                                                                     
+spec:                                                                                                            
+  ports:                                                                                                         
+  - name: http                                                                                                   
+    port: 8080                                                                                                   
+    targetPort: 8080                                                                                             
+  selector:                                                                                                      
+    app: api    
