@@ -6,5 +6,5 @@ spec:
   source:
     repoURL: https://github.com/hoang-trong-tan/gitops-w9-152.git
     path: argocd/apps
-    destination: { server: https://kubernetes.default.svc, namespace: argocd }
-    syncPolicy: { automated: { prune: true, selfHeal: true } }    
+  destination: { server: https://kubernetes.default.svc, namespace: argocd }
+  syncPolicy: { automated: { prune: true, selfHeal: true } }    
