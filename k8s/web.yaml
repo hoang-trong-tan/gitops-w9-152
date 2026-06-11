@@ -1,9 +1,15 @@
 apiVersion: apps/v1
+kind: ConfigMap   # v1, wave 0
+metadata: { name: web-config, namespace: demo,
+  annotations: { argocd.argoproj.io/sync-wave: "0" } }
+data: { MESSAGE: "hello from gitops" }
+
+---
 kind: Deployment
 metadata: {
   name: web, 
-  namespace: demo
-}
+  namespace: demo,
+  annotations: { argocd.argoproj.io/sync-wave: "1" } }
 spec:
   replicas: 5
   selector: {
@@ -18,3 +24,9 @@ spec:
     spec:
       containers:
       - { name: web, image: nginx:1.27 }
+
+---
+kind: Service   # v1, wave 2
+metadata: { name: web, namespace: demo,
+  annotations: { argocd.argoproj.io/sync-wave: "2" } }
+spec: { selector: { app: web }, ports: [ { port: 80, targetPort: 80 } ] }
