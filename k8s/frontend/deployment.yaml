@@ -46,7 +46,7 @@ data:
     </head>                                                                                                      
     <body>                                                                                                       
         <div class="card">                                                                                       
-            <h1>Xin chào từ Frontend! 👋</h1>                                                                    
+            <h1>Xin chào từ Frontend! 👋 version 2</h1>                                                                    
             <p>Trang web này được phục vụ bởi Nginx + Kubernetes ConfigMap.</p>                                  
             <div class="badge">Trạng thái: Đã kết nối GitOps thành công</div>                                    
         </div>                                                                                                   
