@@ -97,6 +97,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8085
+    targetPort: 80
   selector:
     app: frontend
