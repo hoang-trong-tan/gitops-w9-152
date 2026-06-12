@@ -24,7 +24,7 @@ spec:
           containerPort: 8080                                                                                    
         env:                                                                                                     
         - name: ERROR_RATE                                                                                       
-          value: "0"                  # Ban đầu không có lỗi                                                     
+          value: "0.5"                  # Ban đầu không có lỗi                                                     
         - name: VERSION                                                                                          
           value: "v2"                                                                                            
         readinessProbe:               # Kiểm tra xem Pod đã sẵn sàng chưa                                        
@@ -32,13 +32,15 @@ spec:
             path: /healthz                                                                                       
             port: 8080                                                                                           
   strategy:                                                                                                      
-    canary:                           # Chiến lược Canary Rollout                                                
+    canary:                           # Chiến lược Canary Rollout
+      analysis:
+        template:
+        - templateName: success-rate                                                
       steps:                                                                                                     
       - setWeight: 25                 # Chuyển 25% traffic sang bản mới                                          
-      - pause: {}                     # Tạm dừng vô hạn để kiểm tra thủ công                                     
+      - pause: { duration: 1m }                     # Tạm dừng vô hạn để kiểm tra thủ công                                     
       - setWeight: 50                 # Chuyển 50% traffic                                                       
-      - pause:                                                                                                   
-          duration: 30s               # Tạm dừng 30 giây                                                         
+      - pause: { duration: 30s }               # Tạm dừng 30 giây                                                         
       - setWeight: 100                # Chuyển 100% traffic                                                      
                                                                                                                   
 ---                                                                                                              
