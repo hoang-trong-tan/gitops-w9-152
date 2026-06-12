@@ -21,14 +21,20 @@ spec:
               smtp_smarthost: 'smtp.gmail.com:587'                                                                       
               smtp_from: 'laynitroepic@gmail.com'                                                                          
               smtp_auth_username: 'laynitroepic@gmail.com'                                                                 
-              smtp_auth_password: 'kmku tkbj wupt byyx'                                                              
+              smtp_auth_password: 'GMAIL_APP_PASSWORD_PLACEHOLDER'                                                              
             route:                                                                                                       
               group_by: ['alertname']                                                                                    
-              receiver: 'email-receiver'                                                                                 
-            receivers:                                                                                                   
+              receiver: 'email-receiver'
+              routes:
+              - matchers:
+                - alername = "Watchdog"
+                receiver: "null"                                                                                 
+            receivers:              
+            - name: 'null'                                                                                     
             - name: 'email-receiver'                                                                                     
               email_configs:                                                                                             
-              - to: 'laynitroepic@gmail.com'              
+              - to: 'laynitroepic@gmail.com' 
+                send_resolved: true             
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
