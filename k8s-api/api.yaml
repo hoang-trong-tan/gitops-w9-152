@@ -24,9 +24,9 @@ spec:
           containerPort: 8080                                                                                    
         env:                                                                                                     
         - name: ERROR_RATE                                                                                       
-          value: "0.5"                  # Ban đầu không có lỗi                                                     
+          value: "0.6"                  # Ban đầu không có lỗi                                                     
         - name: VERSION                                                                                          
-          value: "v2"                                                                                            
+          value: "v3"                                                                                            
         readinessProbe:               # Kiểm tra xem Pod đã sẵn sàng chưa                                        
           httpGet:                                                                                               
             path: /healthz                                                                                       
