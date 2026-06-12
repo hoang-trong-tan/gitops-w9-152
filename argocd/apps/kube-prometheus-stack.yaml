@@ -14,6 +14,21 @@ spec:
         prometheus:
           prometheusSpec:
             serviceMonitorSelectorNilUsesHelmValues: false
+
+        alertmanager:                                                                                                    
+          config:                                                                                                        
+            global:                                                                                                      
+              smtp_smarthost: 'smtp.gmail.com:587'                                                                       
+              smtp_from: 'laynitroepic@gmail.com'                                                                          
+              smtp_auth_username: 'laynitroepic@gmail.com'                                                                 
+              smtp_auth_password: 'kmku tkbj wupt byyx'                                                              
+            route:                                                                                                       
+              group_by: ['alertname']                                                                                    
+              receiver: 'email-receiver'                                                                                 
+            receivers:                                                                                                   
+            - name: 'email-receiver'                                                                                     
+              email_configs:                                                                                             
+              - to: 'laynitroepic@gmail.com'              
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
