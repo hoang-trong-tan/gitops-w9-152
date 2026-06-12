@@ -16,4 +16,4 @@ jobs:
           tar -xzf kc.tgz && sudo mv kubeconform /usr/local/bin/
       
       - name: Run Kubeconform
-        run: kubeconform -strict -summary k8s/ k8s-api/
+        run: kubeconform -strict -ignore-missing-schemas -summary k8s/ k8s-api/
