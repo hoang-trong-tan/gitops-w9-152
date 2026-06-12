@@ -15,22 +15,25 @@ spec:
           prometheusSpec:
             serviceMonitorSelectorNilUsesHelmValues: false
 
-        alertmanager:                                                                                                    
-          config:                                                                                                        
-            global:                                                                                                      
-              smtp_smarthost: 'smtp.gmail.com:587'                                                                       
-              smtp_from: 'laynitroepic@gmail.com'                                                                          
-              smtp_auth_username: 'laynitroepic@gmail.com'                                                                 
+        alertmanager:
+          alertmanagerSpec:
+            secrets:
+            - alertmanager-smtp-password
+          config:
+            global:
+              smtp_smarthost: 'smtp.gmail.com:587'
+              smtp_from: 'laynitroepic@gmail.com'
+              smtp_auth_username: 'laynitroepic@gmail.com'
               # smtp_auth_password: 'GMAIL_APP_PASSWORD_PLACEHOLDER'
-              smtp_auth_password_file: '/etc/alertmanager/secrets/alertmanager-smtp-password/password'           
-                                                              
-            route:                                                                                                       
-              group_by: ['alertname']                                                                                    
+              smtp_auth_password_file: '/etc/alertmanager/secrets/alertmanager-smtp-password/password'
+                                              
+            route:
+              group_by: ['alertname']
               receiver: 'email-receiver'
               routes:
               - matchers:
-                - alername = "Watchdog"
-                receiver: "null"                                                                                 
+                - alertname = "Watchdog"
+                receiver: "null"
             receivers:              
             - name: 'null'                                                                                     
             - name: 'email-receiver'                                                                                     
