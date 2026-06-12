@@ -34,7 +34,7 @@ spec:
   strategy:                                                                                                      
     canary:                           # Chiến lược Canary Rollout
       analysis:
-        template:
+        templates:
         - templateName: success-rate                                                
       steps:                                                                                                     
       - setWeight: 25                 # Chuyển 25% traffic sang bản mới                                          
