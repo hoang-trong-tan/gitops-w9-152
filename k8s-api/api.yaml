@@ -32,10 +32,7 @@ spec:
             path: /healthz                                                                                       
             port: 8080                                                                                           
   strategy:                                                                                                      
-    canary:                           # Chiến lược Canary Rollout
-      analysis:
-        templates:
-        - templateName: success-rate                                                
+    canary:                           # Chiến lược Canary Rollout                                            
       steps:                                                                                                     
       - setWeight: 25                 # Chuyển 25% traffic sang bản mới                                          
       - pause: { duration: 1m }                     # Tạm dừng vô hạn để kiểm tra thủ công                                     
