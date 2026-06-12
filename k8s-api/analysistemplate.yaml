@@ -12,5 +12,5 @@ spec:
     provider:
       prometheus:
         address:  http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
-        query: (sum(rate(flask_http_request_total{namespace="demo", status="200"}[2m])) / sum(rate(flask_http_request_total{namespace="demo"}[2m]))) or on() vector(1)
+        query:     sum(rate(flask_http_request_total{namespace="demo", status="200", version="v1"}[2m])) / sum(rate(flask_http_request_total{namespace="demo", version="v1"}[2m])) 
 
