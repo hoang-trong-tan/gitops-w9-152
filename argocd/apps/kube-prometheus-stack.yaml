@@ -21,7 +21,9 @@ spec:
               smtp_smarthost: 'smtp.gmail.com:587'                                                                       
               smtp_from: 'laynitroepic@gmail.com'                                                                          
               smtp_auth_username: 'laynitroepic@gmail.com'                                                                 
-              smtp_auth_password: 'GMAIL_APP_PASSWORD_PLACEHOLDER'                                                              
+              # smtp_auth_password: 'GMAIL_APP_PASSWORD_PLACEHOLDER'
+              smtp_auth_password_file: '/etc/alertmanager/secrets/alertmanager-smtp-password/password'           
+                                                              
             route:                                                                                                       
               group_by: ['alertname']                                                                                    
               receiver: 'email-receiver'
