@@ -5,7 +5,8 @@ metadata:
   namespace: demo                                                                                                
   labels:                                                                                                        
     app: api                                                                                                     
-spec:                                                                                                            
+spec:    
+  revisionHistoryLimit: 5                                                                                                        
   replicas: 4                                                                                                    
   selector:                                                                                                      
     matchLabels:                                                                                                 
@@ -24,9 +25,9 @@ spec:
           containerPort: 8080                                                                                    
         env:                                                                                                     
         - name: ERROR_RATE                                                                                       
-          value: "0.25"                  # Ban đầu không có lỗi                                                     
+          value: "0.6"                  # Ban đầu không có lỗi                                                     
         - name: VERSION                                                                                          
-          value: "v1.6"                                                                                            
+          value: "v3"                                                                                            
         readinessProbe:               # Kiểm tra xem Pod đã sẵn sàng chưa                                        
           httpGet:                                                                                               
             path: /healthz                                                                                       
