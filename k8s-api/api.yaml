@@ -27,7 +27,7 @@ spec:
         - name: ERROR_RATE                                                                                       
           value: "0.25"                  # Ban đầu không có lỗi                                                     
         - name: VERSION                                                                                          
-          value: "v1.7"                                                                                            
+          value: "v1.6"                                                                                            
         readinessProbe:               # Kiểm tra xem Pod đã sẵn sàng chưa                                        
           httpGet:                                                                                               
             path: /healthz                                                                                       
