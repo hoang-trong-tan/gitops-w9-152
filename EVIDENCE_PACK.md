@@ -18,7 +18,9 @@ Dự án triển khai mô hình **Progressive Delivery** sử dụng Argo Rollou
 - **Screenshot yêu cầu:**
     1. Ảnh chụp `kubectl argo rollouts get rollout api -n demo --watch` hiển thị trạng thái `Degraded` khi lỗi bị phát hiện.
     2. Ảnh chụp bảng AnalysisRun kết thúc với trạng thái `Failed` do tỷ lệ lỗi cao.
-![Canary-Auto]()
+![Canary-Auto](images/AnalysisFailed.png)
+![Canary-Auto1](images/Rollouts%20degraded.png)
+
 
 ---
 
@@ -29,8 +31,7 @@ Dự án triển khai mô hình **Progressive Delivery** sử dụng Argo Rollou
 - **Screenshot yêu cầu:**
     1. Ảnh chụp danh sách Alert trên Alertmanager (`http://localhost:9093`) hiển thị trạng thái `Firing`.
     2. Ảnh chụp email nhận được từ hệ thống cảnh báo (chứa thông báo `APISuccessRateLow`).
-[CHÈN ẢNH TẠI ĐÂY]
-
+![Alert-APISuccesLow](images/AlertMail.png)
 ---
 
 ## 4. Rollback via Git Revert (< 5 phút)
@@ -41,7 +42,7 @@ Dự án triển khai mô hình **Progressive Delivery** sử dụng Argo Rollou
     1. Ảnh chụp lịch sử Git với commit `revert`.
     2. Ảnh chụp giao diện Argo CD đang trong quá trình đồng bộ (Syncing) sau khi thực hiện `git revert`.
     3. Ảnh chụp Rollout đã quay về bản ổn định (stable) cũ.
-[CHÈN ẢNH TẠI ĐÂY]
+![Git-Revert](images/RevertCommit.png)
 
 ---
 
