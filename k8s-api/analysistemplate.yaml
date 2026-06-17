@@ -16,4 +16,4 @@ spec:
       prometheus:
         address:  http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
         query: |                                                             
-          (sum(rate(flask_http_request_total{namespace="demo", status="200", pod=~"api-{{args.canary-hash}}-.*"}[2m])) / sum(rate(flask_http_request_total{namespace="demo", pod=~"api- {{args.canary-hash}}-.*"}[2m]))) or on() vector(1) 
+          (sum(rate(flask_http_request_total{namespace="demo", status="200", pod=~"api-{{args.canary-hash}}-.*"}[2m])) / sum(rate(flask_http_request_total{namespace="demo", pod=~"api-{{args.canary-hash}}-.*"}[2m]))) or on() vector(1) 

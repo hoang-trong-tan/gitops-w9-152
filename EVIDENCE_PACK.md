@@ -8,8 +8,7 @@ Dự án triển khai mô hình **Progressive Delivery** sử dụng Argo Rollou
 *Mục tiêu: Chứng minh cấu hình được quản lý hoàn toàn qua Git và Argo CD tự động đồng bộ.*
 
 - **Screenshot yêu cầu:** Ảnh chụp giao diện Argo CD hiển thị trạng thái `Synced` và `Healthy` của các ứng dụng `api` và `kube-prometheus-stack`.
-[CHÈN ẢNH TẠI ĐÂY]
-
+![Gitops](images/ArgoCD%20+%20Prometheus%20sync.png)
 ---
 
 ## 2. Canary Deployment & Auto-Abort (Bản lỗi tự quay xe)
@@ -19,7 +18,7 @@ Dự án triển khai mô hình **Progressive Delivery** sử dụng Argo Rollou
 - **Screenshot yêu cầu:**
     1. Ảnh chụp `kubectl argo rollouts get rollout api -n demo --watch` hiển thị trạng thái `Degraded` khi lỗi bị phát hiện.
     2. Ảnh chụp bảng AnalysisRun kết thúc với trạng thái `Failed` do tỷ lệ lỗi cao.
-[CHÈN ẢNH TẠI ĐÂY]
+![Canary-Auto]()
 
 ---
 
